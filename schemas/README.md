@@ -20,7 +20,8 @@ Le répertoire PCB contient le .brd (format eagle). Il contient également les g
 
 # Commander un PCB
 Afin de commander un pcb assemblé il suffit d'utiliser les fichiers contenus dans l'archive PCB-BODYGUARD.rar et la BOM car les composants sont déjà correspondants entre la BOM et le .brd
-Passer par le site EMSPROTO et compter deux semaines pour des prix correctes.
+
+Passer par le site EMSPROTO et compter deux semaines pour des prix corrects.
 	
 # A faire
 La carte électronique est conçue sans bouton bien que les trous soient présent pour venir en souder deux. Il faut également ajouter un vibreur sur le pin A0.
