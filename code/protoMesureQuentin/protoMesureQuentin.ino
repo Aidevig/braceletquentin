@@ -142,11 +142,12 @@ void loop() {
   if(!record){
    ///*******GESTION COMMUNICATION USB
     if(Serial.available()>0){
-        if(waitCommand()=='A'){
+        if(waitCommand()=='G'){
           sendLast();
         }
-        if(waitCommand()=='G'){
+        if(waitCommand()=='A'){
           sendAudio();
+          sendLog();
         }
       }
       

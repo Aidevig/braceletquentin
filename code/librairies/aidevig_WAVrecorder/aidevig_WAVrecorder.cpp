@@ -68,7 +68,7 @@ void sendLast(){
 }
 
 void sendAudio(){
-  int count = countRec();
+  int count = countRec() + 1; ///ADD 1 FOR DATALOG FILE
   int i;
   char data;
   String nom;
@@ -88,6 +88,22 @@ void sendAudio(){
    toSend.close();
   }
 }
+
+void sendLog(){
+    char data;
+    toSend = SD.open("datalog.txt");
+    if(waitCommand()=='N'){
+      Serial.print(toSend.name());
+    }
+    if(waitCommand()=='O'){
+      while (toSend.available()) {
+        data = toSend.read(); // on stocke le caractère dans c
+        Serial.write(data);
+        }
+    }
+    toSend.close();
+}
+
 
 char waitCommand(){
   while(Serial.available()==0);

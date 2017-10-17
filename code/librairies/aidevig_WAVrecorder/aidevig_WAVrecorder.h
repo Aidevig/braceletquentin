@@ -83,5 +83,8 @@ void sendAudio();
 ///envois du dernier fichiers audio sur l'ordinateur
 void sendLast();
 
+///ENvois les Logs sur l'ordinateur
+void sendLog();
+
 
 #endif // WAVRECORDER_H_INCLUDED
