@@ -1,4 +1,4 @@
-#include <ADC.h>
+#include <aidevig_ADC.h>
 
 
 static void   ADCsync() {

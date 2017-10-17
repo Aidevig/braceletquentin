@@ -1,4 +1,4 @@
-#include <timers.h>
+#include <aidevig_timers.h>
 
 void setTimer(){
    // Set up the generic clock (GCLK4) used to clock timers

@@ -1,3 +1,5 @@
+///**Gère une horloge temps réelle qui permet de dater les logs si elle est mise à l'heure grâce au téléphone
+
 #ifndef RTC_H_INCLUDED
 #define RTC_H_INCLUDED
 

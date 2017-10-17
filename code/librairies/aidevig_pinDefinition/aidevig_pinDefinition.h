@@ -7,7 +7,7 @@
 
 #define ADCPIN A3
 #define SD_PIN  12
-#define ACCELEROMETRE_IT 10
+#define ACCELEROMETRE_IT 10 ///Permet de détecter une interruption de l'accéléromètre
 #define BTN_1 6
 #define BTN_2 5
 #define LED_RED 13

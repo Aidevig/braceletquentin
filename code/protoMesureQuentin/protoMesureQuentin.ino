@@ -21,25 +21,51 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
 ******************************************************************************/
-#include "Adafruit_BLE.h"
-#include "Adafruit_BluefruitLE_SPI.h"
+
+///////////////////////////////DO NOT TOUCH ANY OF THESE LIBRAIRIES/////////////////////////
+///***Librairies Natives Android
 #include <SPI.h>
 #include <SD.h>
-#include <timers.h>
-#include <ADXL345.h>
-#include <ADC.h>
-#include <RTC.h>
-#include <pinDefinition.h>
-#include <WAVrecorder.h>
 #include <Wire.h>
-#include <utilitaire.h>
+#if not defined (_VARIANT_ARDUINO_DUE_X_) && not defined (_VARIANT_ARDUINO_ZERO_)
+  #include <SoftwareSerial.h>
+#endif
+///***Librairies Natives Adafruit pour le fonctionnement du bluetooth
+#include "Adafruit_BLE.h"
+#include "Adafruit_BluefruitLE_SPI.h"
+///***Librairies Délivrées par Rohm pour le fonctionnement du capteur cardiaque
 #include <BH1790GLC.h>
 extern "C" {
 #include <hr_bh1790.h>
 }
-#if not defined (_VARIANT_ARDUINO_DUE_X_) && not defined (_VARIANT_ARDUINO_ZERO_)
-  #include <SoftwareSerial.h>
-#endif
+///*******Librairie Open Source pour l'utilisation de l'ADXL345
+#include <ADXL345.h>
+
+
+////////////////////////////CHANGES CAN BE MADE ON THESE LIBRAIRIES/////////////////////////////
+///*****Librairies développées pour le proto mesure Aidevig
+///*****Elles contiennent les fonctions qui gèrent les différents périphériques
+
+////////////Mapping HARDWARE/////////
+#include <aidevig_pinDefinition.h>
+
+
+#include <aidevig_timers.h> //**Gère l'initialisation, la mise en route et l'arrêt des timers
+                    //**Initialise le timer TC4 pour IT sur overflow à 8Khz
+                    //**Initialise le timer TC5 pour IT sur overflow à 32Hz
+
+#include <aidevig_ADC.h>  //**Gère l'initialisation et la mise en route du convertisseur analog numérique
+                 //** Contient aussi la fonction de lecture rapide afin de pouvoir respecter les 8Khz d'échantillonage pour enregistrement audio 
+
+#include <aidevig_RTC.h> //**Gère une horloge temps réelle qui permet de dater les logs si elle est mise à l'heure grâce au téléphone
+
+#include <aidevig_WAVrecorder.h> //**Gère l'enregistrement de fichiers WAV et l'envois des fichiers en USB
+
+#include <aidevig_utilitaire.h> //**Gère l'algorithmie basique s'appuyant sur les fonctions arduino
+                        //**  +la gestion du bluetooth
+                        //**  +la gestion de l'accéléromètre
+                        //**  +la gestion du capteur cardiaque
+                        //**  +la gestion des boutons et des gpios
 
 
 
