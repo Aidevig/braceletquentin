@@ -15,24 +15,20 @@ BH1790GLC							http://www.rohm.com/web/global/products/-/product/BH1790GLC
 micro:
 Electret Microphone Amplifier - MAX4466 with Adjustable gain	https://www.adafruit.com/product/1063
 
-#PCB
-
+# PCB
 Le répertoire PCB contient le .brd (format eagle). Il contient également les gerbers et la BOM.
 
-# COmmander un PCB
-
-	Afin de commander un pcb assemblé il suffit d'utiliser les fichiers contenus dans l'archive PCB-BODYGUARD.rar et la BOM car les composants sont déjà correspondants entre la BOM et le .brd
-	Passer par le site EMSPROTO et compter deux semaines pour des prix correctes.
+# Commander un PCB
+Afin de commander un pcb assemblé il suffit d'utiliser les fichiers contenus dans l'archive PCB-BODYGUARD.rar et la BOM car les composants sont déjà correspondants entre la BOM et le .brd
+Passer par le site EMSPROTO et compter deux semaines pour des prix correctes.
 	
 # A faire
-	
-	La carte électronique est conçue sans bouton bien que les trous soient présent pour venir en souder deux. Il faut également ajouter un vibreur sur le pin A0.
-	Ceci permet d'ajouter ces périphériques directement sur la structure mécanique de l'objet.
-	La carte électronique vient également sans son microcontrôleur feather M0 Bluefruit qui doit être soudé dessus. Il est immaginable d'ajouter un connecteur à la place afin d'éviter d'avoir à souder le microcontrôleur.
+La carte électronique est conçue sans bouton bien que les trous soient présent pour venir en souder deux. Il faut également ajouter un vibreur sur le pin A0.
+Ceci permet d'ajouter ces périphériques directement sur la structure mécanique de l'objet.
+La carte électronique vient également sans son microcontrôleur feather M0 Bluefruit qui doit être soudé dessus. Il est immaginable d'ajouter un connecteur à la place afin d'éviter d'avoir à souder le microcontrôleur.
 	
 	
 # ATTENTION
-		
-		Afin d'optimiser l'espace sur la carte, j'ai supprimé les boutons poussoirs. Il ne reste que le trou pour les connecter aux pins du microcontrôleur. Il faudra également connecter l'autre entrée à la masse.
-		Par conséquent, les fichiers eagles du schéma et de la board ne sont plus linkés. AUCUNE MODIFICATION SUR L'UN N'AURA D'EFFET SUR L'AUTRE
+Afin d'optimiser l'espace sur la carte, j'ai supprimé les boutons poussoirs. Il ne reste que le trou pour les connecter aux pins du microcontrôleur. Il faudra également connecter l'autre entrée à la masse.
+Par conséquent, les fichiers eagles du schéma et de la board ne sont plus linkés. AUCUNE MODIFICATION SUR L'UN N'AURA D'EFFET SUR L'AUTRE
 	
