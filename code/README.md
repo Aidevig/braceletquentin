@@ -37,7 +37,7 @@ Ce microcontroleur utilisant un SAMD21 et non un ATMEGA, il n'est pas compatible
 - Calibrer les valeurs de l'accéléromètre et du rythme cardiaque
 - Calibrer les interruptions de l'accéléromètre (voir datasheet + debug console qui affiche les IT accéléromètre triggered)
 ATTENTION : les IT accéléromètre sont désactivées en mode non debug
-- Informer du niveau de batterie restant lors de 3 appuis
+- Informer du niveau de batterie restant lors de 3 appuis (voir tuto adafruit m0 bluefruit, liens plus bas)
 - Gérer le vibreur plutôt qu'une LED lors de la proposition d'alerte
 - Créer des alertes automatiques sur IT accéléromètre où valeurs particulières d'accélération
 
@@ -47,3 +47,7 @@ ATTENTION : les IT accéléromètre sont désactivées en mode non debug
 - télécharger l'archive Code de ce repository et extraire dans un répertoire du nom de votre choix
 - Copier LE CONTENU du dossier librairies dans le dossier librairies de votre IDE Arduino ( .../mesdocuments/arduino/librairies)
 - Ouvrir le fichier protoMesureQuentin.ino du répertoire protoMesureQuentin, brancher en USB le feather M0 Bluefruit LE, sélectionner le bon port dans l'IDE et cliquer sur téléverser
+
+# En cas de problème
+
+Contacter Quentin Van Straaten : vanstraatenquentin@gmail.com

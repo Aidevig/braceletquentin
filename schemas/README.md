@@ -24,10 +24,11 @@ Afin de commander un pcb assemblé il suffit d'utiliser les fichiers contenus da
 Passer par le site EMSPROTO et compter deux semaines pour des prix corrects.
 	
 # A faire
-La carte électronique est conçue sans bouton bien que les trous soient présent pour venir en souder deux. Il faut également ajouter un vibreur sur le pin A0.
+-La carte électronique est conçue sans bouton bien que les trous soient présent pour venir en souder deux. Il faut également ajouter un vibreur sur le pin A0.
 Ceci permet d'ajouter ces périphériques directement sur la structure mécanique de l'objet.
-La carte électronique vient également sans son microcontrôleur feather M0 Bluefruit qui doit être soudé dessus. Il est immaginable d'ajouter un connecteur à la place afin d'éviter d'avoir à souder le microcontrôleur.
-	
+-La carte électronique vient également sans son microcontrôleur feather M0 Bluefruit qui doit être soudé dessus. Il est immaginable d'ajouter un connecteur à la place afin d'éviter d'avoir à souder le microcontrôleur.
+-La batterie utilisée est une batterie adafruit compatible avec le Feather M0 Bluefruit LE, elle se recharge lorsque le bracelet est branché en USB. Le bracelet doit être allumé pour se recharger.
+-Un fil de la batterie doit être coupé et soudé a un switch intégré à la structure mécanique afin de pouvoir allumer et éteindre le bracelet 	
 	
 # ATTENTION
 Afin d'optimiser l'espace sur la carte, j'ai supprimé les boutons poussoirs. Il ne reste que le trou pour les connecter aux pins du microcontrôleur. Il faudra également connecter l'autre entrée à la masse.
