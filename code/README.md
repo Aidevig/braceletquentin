@@ -46,4 +46,4 @@ ATTENTION : les IT accéléromètre sont désactivées en mode non debug
 - PREMIEREMENT : suivre ce tuto https://learn.adafruit.com/adafruit-feather-m0-bluefruit-le/setup
 - télécharger l'archive Code de ce repository et extraire dans un répertoire du nom de votre choix
 - Copier LE CONTENU du dossier librairies dans le dossier librairies de votre IDE Arduino ( .../mesdocuments/arduino/librairies)
-- Ouvrir le fichier .ino, brancher en USB le feather M0 Bluefruit LE, sélectionner le bon port dans l'IDE et cliquer sur téléverser
+- Ouvrir le fichier protoMesureQuentin.ino du répertoire protoMesureQuentin, brancher en USB le feather M0 Bluefruit LE, sélectionner le bon port dans l'IDE et cliquer sur téléverser
