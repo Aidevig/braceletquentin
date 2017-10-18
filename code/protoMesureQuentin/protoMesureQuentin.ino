@@ -81,7 +81,7 @@ extern "C" {
 ///*****Elles contiennent les fonctions qui gèrent les différents périphériques
 
 ////////////Mapping HARDWARE/////////
-#include <aidevig_pinDefinition.h>
+#include <aidevig_pinDefinition.h>   // CONTIENT #DEFINE DEBUG QUI ACTIVE LA DEBUG CONSOLE
 
 
 #include <aidevig_timers.h> //**Gère l'initialisation, la mise en route et l'arrêt des timers
@@ -100,7 +100,6 @@ extern "C" {
                         //**  +la gestion de l'accéléromètre
                         //**  +la gestion du capteur cardiaque
                         //**  +la gestion des boutons et des gpios
-                        // CONTIENT #DEFINE DEBUG QUI ACTIVE LA DEBUG CONSOLE
 
 
 

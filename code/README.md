@@ -33,6 +33,7 @@ Ce microcontroleur utilisant un SAMD21 et non un ATMEGA, il n'est pas compatible
 
 # TO DO
 
+- Développer l'utilisation du bluetooth en parallèle avec un développeur de l'appli mobile
 - améliorer l'utilisation des LED
 - Calibrer les valeurs de l'accéléromètre et du rythme cardiaque
 - Calibrer les interruptions de l'accéléromètre (voir datasheet + debug console qui affiche les IT accéléromètre triggered)
