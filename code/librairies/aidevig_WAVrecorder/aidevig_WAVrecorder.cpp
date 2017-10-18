@@ -114,11 +114,11 @@ void writeWavHeader() { // write out original WAV header to file
   String Name = checkName();
   recByteSaved = 0;
   bufByteCount = 0;
-  Serial.print(Name);
+  if(DEBUG) Serial.println(Name);
   rec = SD.open(Name, FILE_WRITE);
   delay(300);
   if(rec){
-  Serial.print(rec.write("RIFF"));
+  rec.write("RIFF");
   byte1 = fileSize & 0xff;
   byte2 = (fileSize >> 8) & 0xff;
   byte3 = (fileSize >> 16) & 0xff;
@@ -161,7 +161,7 @@ void writeWavHeader() { // write out original WAV header to file
   rec.write(byte1);  rec.write(byte2);  rec.write(byte3);  rec.write(byte4);
   }
   else{
-    Serial.println("BUG2");
+    if(DEBUG) Serial.println("BUG ECRITURE HEADER");
   }
 }
 

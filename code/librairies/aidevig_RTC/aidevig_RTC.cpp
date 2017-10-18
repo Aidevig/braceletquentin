@@ -63,7 +63,7 @@ void printTimestamp(File toWrite){
   toWrite.print(":");
   toWrite.print(minutes);
   toWrite.print(":");
-  toWrite.print(seconds);
+  toWrite.println(seconds);
 }
 
 void displayTimestamp(){

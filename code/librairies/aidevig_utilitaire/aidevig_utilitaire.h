@@ -75,7 +75,6 @@
 extern "C" {
 #include <hr_bh1790.h>
 }
-#define DEBUG 1
 
 
 
@@ -128,6 +127,26 @@ void sdStart();
 ///Envois de l'alerte bluetooth
 void sendAlert();
 
+
+extern bool stateVibreur;
+extern int timeVib;
+extern int vibTimer;
+extern bool alarm;
+extern bool alarmCardio;
+extern int alarmCardioTimer;
+extern int alarmCardioTime;
+///Initialisation des seuils d'alerte Cardio en les lisant dans le fichier conf.txt
+void getSeuils();
+///Gère les alertes sur le capteur cardiaque
+void alertAutoCardio();
+
+
+void alertVibration();
+
+void startAlert();
+///Arrête les alertes
+void stopAlert();
+
 ///Affichage console des logs
 void displayLog();
 
@@ -144,7 +163,8 @@ void saveLog();
 #define START_RECORD 100 //appui long
 #define STOP_RECORD 101  //appui long relaché
 #define SEND_ALERT 1
-///A définir pour 2 et 3 appuis
+#define STOP_ALERT 2
+///A définir pour 3 appuis
 int managebtn(int pin);
 
 ///Routine de configuration des différents GPIOS

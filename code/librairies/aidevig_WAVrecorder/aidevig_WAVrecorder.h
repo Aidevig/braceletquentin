@@ -38,10 +38,12 @@
 #include <Arduino.h>
 #include <SD.h>
 #include <aidevig_timers.h>
+#include <aidevig_pinDefinition.h>
 
 extern File toSend;
 extern File rec;
 extern bool record;
+
 
 extern int count;
 extern unsigned int bufByteCount;

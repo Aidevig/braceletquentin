@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1496757940 source:c:\users\van_straat\desktop\orange\bodyguard\bracelet\proto demo\sample c code\requestaudio\serial.cpp
+	"Serial.h"
+
+1496757904 c:\users\van_straat\desktop\orange\bodyguard\bracelet\proto demo\sample c code\requestaudio\serial.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+
+1508262110 source:c:\users\van_straat\desktop\orange\bodyguard\bracelet\proto demo\sample c code\requestaudio\main.cpp
+	<fstream>
+	<iostream>
+	<stdio.h>
+	<tchar.h>
+	"Serial.h"
+	<string>
+	<sstream>
+

@@ -120,7 +120,9 @@ void setup() {
   pinConfig();
   sdStart();
   cardioInit();
+  getSeuils();
   adc_init();
+  blinkFast(LED_RED);
 }
 
 void loop() {
@@ -138,6 +140,7 @@ void loop() {
   }
   ///ENVOIS d'UNE ALERTE SI UNE PRESSION SUR LE BOUTON
   if(btn1 == SEND_ALERT) sendAlert();
+  if(btn1 == STOP_ALERT) stopAlert();
   
   if(!record){
    ///*******GESTION COMMUNICATION USB
@@ -150,12 +153,15 @@ void loop() {
           sendLog();
         }
       }
+    alertAutoCardio();  
       
   ///*************Gestion de l'accéléromètre    
   adxl.readAccel(&x, &y, &z); //read the accelerometer values and store them in variables  x,y,z
   //read interrupts source and look for triggerd actions
-  if(digitalRead(ACCELEROMETRE_IT)){
-    adxlInterrupts();
+  if(DEBUG){
+    if(digitalRead(ACCELEROMETRE_IT)){ 
+        adxlInterrupts();
+    }
   }
   ///**********GESTION Capteur cardiaque
   resetDataCardio();

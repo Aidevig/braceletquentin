@@ -257,6 +257,7 @@ void startBluetooth(){
 
 void sendAlert(){
   ///*********** Fait fonctionner le "protocole" d'alerte bluetooth. A changer lorsqu'une appli sera en place
+  if(DEBUG) Serial.println("ALERT SENT");
   char heartrate[3];
   heartrate[0]='0';
   heartrate[1]='1';
@@ -265,8 +266,110 @@ void sendAlert(){
     ble.write('S');
     ble.write(heartrate,3);
 }
+int minCardio;
+int maxCardio;
+///*****Initialisation/MAJ des seuils déclencheur d'alerte Cardio
+void initSeuilAlertCardio(int mini, int maxi){
+    minCardio= mini;
+    maxCardio = maxi;
+}
+
+///*****Lis les seuils dans le fichier conf.txt et les enregistre dans des int globaux
+///***Le premier nombre rencontré devient minCardio
+///***Le second devient maxCardio
+void getSeuils(){
+  File reader=SD.open("conf.txt");
+  String mini;
+  String maxi;
+  char data;
+  ///*****************Boucle de lecture d'un nombre
+  //Passe les caractères avant le premier nombre
+  do{
+    data = reader.read();
+  }while(!isDigit(data));
+  // Enregistre le premier nombre dans minCardio
+  while(isDigit(data)){
+    mini += data;
+    data=reader.read();
+  }
+  minCardio=mini.toInt();
+  ///****
+  //Passe les caractères jusqu'au nombre suivant
+  do{
+    data = reader.read();
+  }while(!isDigit(data));
+  //Enregistre ce nombre dans maxCardio
+  while(isDigit(data)){
+    maxi += data;
+    data=reader.read();
+  }
+  maxCardio=maxi.toInt();
+  if(DEBUG){
+    Serial.print("SeuilMinCardio: "); Serial.println(minCardio); Serial.print("SeuilMaxCardio: "); Serial.println(maxCardio);
+  }
+   reader.close();
+}
 
 
+
+bool stateVibreur=false;
+int timeVib=300;
+int vibTimer=0;
+bool alarm=false;
+bool alarmCardio=false;
+int alarmCardioTimer=0;
+int alarmCardioTime=7000;
+
+///*****Gestion auto des alertes sur dépassement des seuils min et max du capteur cardiaque
+void alertAutoCardio(){
+    if(bpm!=0){
+        if(((bpm<minCardio)||(bpm>maxCardio))&&(!alarmCardio)){
+            alarmCardioTimer=millis();
+            alarmCardio=true;
+            startAlert();
+        }
+    }
+    if(millis()-alarmCardioTimer>alarmCardioTime && alarmCardio){
+            sendAlert();
+            stopAlert();
+        }
+    alertVibration();
+}
+
+void startAlert(){
+    if(DEBUG) Serial.println("START ALERT");
+    alarm=true;
+    stateVibreur=true;
+    vibTimer=millis();
+}
+
+///****Arrête les alertes
+void stopAlert(){
+    if(DEBUG) Serial.println("STOP ALERT");
+    alarmCardioTimer=0;
+    alarmCardio=false;
+    alarm=false;
+    stateVibreur=false;
+    digitalWrite(LED_RED,LOW);
+    digitalWrite(VIBREUR,LOW);
+}
+
+///Fais vibrer le bracelet si une alerte est activee
+///ATTENTION, le vibreur n'étant pas implémenté (pin 10), j'utilise un clignotement de LED
+void alertVibration(){
+    if(alarm){
+        if(millis()-vibTimer>timeVib){
+            stateVibreur = !stateVibreur;
+            vibTimer=millis();
+            digitalWrite(LED_RED,stateVibreur);
+            digitalWrite(VIBREUR,stateVibreur);
+        }
+    }
+}
+
+void blinkLed1(){
+
+}
 
 ///*****************************FONCTIONS DE GESTION DE LA CARTE SD*******************************
 void sdStart(){
@@ -281,6 +384,7 @@ void sdStart(){
     if(DEBUG) Serial.print("SD OK");
   }
 }
+
 
 ///Enregistre les valeurs du BPM et X,Y et Z de l'accéléromètre ainsi que l'heure au format BPM,X,Y,Z DD/MM/AAAA hh:mm:ss
 void saveLog(){
@@ -307,13 +411,14 @@ void saveLog(){
 void displayLog(){
         //Serial.print("count:");Serial.println(heartcount);
         Serial.print(bpm);
-        Serial.print("//");
+        Serial.print(",");
         // Output x,y,z values - Commented out
         Serial.print(x);
         Serial.print(",");
         Serial.print(y);
         Serial.print(",");
         Serial.print(z);
+        Serial.print(" ");
         displayTimestamp();
 }
 
