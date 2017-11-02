@@ -157,11 +157,11 @@ void loop() {
   ///*************Gestion de l'accéléromètre    
   adxl.readAccel(&x, &y, &z); //read the accelerometer values and store them in variables  x,y,z
   //read interrupts source and look for triggerd actions
-  if(DEBUG){
+  /*if(DEBUG){
     if(digitalRead(ACCELEROMETRE_IT)){ 
         adxlInterrupts();
     }
-  }
+  }*/
   ///**********GESTION Capteur cardiaque
   resetDataCardio();
   ///FLAG 32HZ
